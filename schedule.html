@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>出勤情報｜NAGI GINZA（凪）【デモサイト】</title>
+<meta name="description" content="凪 NAGI GINZA の出勤情報です。2週間先まで日付から選べます（デモ・サンプル表示）。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<div class="demo">これはデモサイトです。店舗・セラピスト・電話番号はすべて架空のサンプルです。</div>
+<header>
+<div class="area">銀座エリア｜メンズリラクゼーション</div>
+<h1>NAGI GINZA<span class="jp">凪</span></h1>
+<nav><a href="index.html">トップ</a><a class="on" href="schedule.html">出勤情報</a><a href="system.html">料金システム</a></nav>
+</header>
+
+<section>
+<h2>SCHEDULE<span class="en">出勤情報</span></h2>
+<p class="lead">日付を選ぶと、その日の出勤セラピストが表示されます。2週間先まで確認できます（出勤内容はサンプル表示です）。</p>
+<div class="tabs" id="tabs"></div>
+<div class="sched" id="list"></div>
+<p class="note">ご予約は画面下の LINE または電話から。当日のご予約はお電話が確実です。</p>
+</section>
+
+<footer>NAGI GINZA（凪）は架空のデモ店舗です。出勤情報はすべてサンプル表示です。</footer>
+</div>
+<div class="fixedbar"><div class="in">
+<div class="hours">OPEN 12:00 ～ 翌5:00 ｜ ご予約は LINE が確実です ｜ 03-0000-0000（デモ番号）</div>
+<div class="btns"><a class="line" href="#">LINEで予約</a><a class="tel" href="#">電話する</a></div>
+</div></div>
+<script>
+var patterns = [
+ [["さくら","おすすめ","12:00～20:00","ご予約可能",0],["みお","","14:00～22:00","ご予約可能",0],["あや","","16:00～翌0:00","ご予約可能",0],["りん","新人","18:00～翌2:00","ご予約可能",0],["ゆき","","12:00～18:00","本日 受付終了",1]],
+ [["みお","","12:00～20:00","ご予約可能",0],["あや","","14:00～22:00","ご予約可能",0],["はな","","16:00～翌0:00","ご予約可能",0],["ことり","","18:00～翌2:00","ご予約可能",0]],
+ [["さくら","おすすめ","13:00～21:00","ご予約可能",0],["りん","新人","15:00～23:00","ご予約可能",0],["ゆき","","17:00～翌1:00","ご予約可能",0],["はな","","12:00～19:00","本日 受付終了",1]]
+];
+var tabs = document.getElementById("tabs"), list = document.getElementById("list");
+var days = ["日","月","火","水","木","金","土"];
+function render(i){
+  var btns = tabs.children;
+  for (var j=0;j<btns.length;j++) btns[j].className = (j===i ? "on" : "");
+  var rows = patterns[i % patterns.length], html = "";
+  rows.forEach(function(r){
+    html += '<div class="card' + (r[4] ? ' closed' : '') + '"><div><div class="nm">' + r[0] +
+      (r[1] ? '<span class="tag">' + r[1] + '</span>' : '') +
+      '</div><div class="prop">銀座ルーム</div></div><div class="time"><div class="t">' + r[2] +
+      '</div><div class="st">' + r[3] + '</div></div></div>';
+  });
+  list.innerHTML = html;
+}
+for (var i=0;i<14;i++){
+  var d = new Date(); d.setDate(d.getDate()+i);
+  var b = document.createElement("button");
+  b.textContent = (d.getMonth()+1) + "月" + d.getDate() + "日(" + days[d.getDay()] + ")";
+  b.onclick = (function(idx){ return function(){ render(idx); }; })(i);
+  tabs.appendChild(b);
+}
+render(0);
+</script>
+</body>
+</html>
