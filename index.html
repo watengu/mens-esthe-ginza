@@ -4,8 +4,79 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NAGI GINZA（凪）｜銀座のメンズリラクゼーション【デモサイト】</title>
-<meta name="description" content="銀座・完全個室のメンズリラクゼーション「凪 NAGI GINZA」のデモサイトです。本日の出勤・料金・アクセスを掲載しています。">
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="銀座の完全個室メンズリラクゼーション「凪 NAGI GINZA」のデモサイトです。本日の出勤・料金・注意事項を掲載しています。">
+<style>
+:root{--ink:#33302B;--sub:#6B5F52;--acc:#C96F2E;--acc2:#D3542E;--line:#EDE2D2;--bg:#FBF7F1;--gold:#9A5A13}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans CJK JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+.wrap{max-width:430px;margin:0 auto;padding-bottom:92px}
+.demo{background:#B25B00;color:#fff;text-align:center;font-size:11px;font-weight:700;padding:7px 10px}
+header{background:#fff;padding:12px 16px 10px;border-bottom:1px solid var(--line)}
+header .area{font-size:11px;font-weight:700;color:var(--acc);letter-spacing:.08em}
+header h1{font-size:26px;font-weight:800}
+header h1 .jp{font-size:15px;color:var(--sub);font-weight:700;margin-left:6px}
+header .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+header .meta span{font-size:10.5px;background:#F5EFE6;border-radius:5px;padding:4px 7px;font-weight:700;color:#5A4F43}
+header .meta span.open{background:#EAF6EC;color:#2E7D32}
+.fv{height:230px;background:url(img/fv-p2-seijaku-salon.jpg) center/cover;position:relative}
+.fv:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,18,12,0) 40%,rgba(24,18,12,.72))}
+.fv .cap{position:absolute;left:16px;right:16px;bottom:12px;z-index:2;color:#fff}
+.fv .cap b{font-size:17px;line-height:1.6;display:block}
+.fv .cap span{font-size:11px;opacity:.92}
+section{padding:22px 16px 4px}
+h2{font-size:17px;font-weight:800;border-left:4px solid var(--acc);padding-left:9px;margin-bottom:6px}
+h2 .en{font-size:10px;color:var(--acc);letter-spacing:.14em;margin-left:7px}
+.lead{font-size:12px;color:var(--sub);margin-bottom:12px}
+.concept{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:12.5px}
+.gal{display:flex;gap:6px;margin-top:10px}
+.gal div{flex:1;height:92px;border-radius:10px;background-size:cover;background-position:center}
+.sched{display:flex;flex-direction:column;gap:8px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.card .nm{font-size:15.5px;font-weight:800}
+.card .spec{font-size:11px;color:var(--sub);margin-top:1px}
+.card .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.card .tags span{font-size:9.5px;background:#FDF0E2;color:var(--gold);border-radius:4px;padding:3px 7px;font-weight:700}
+.card .row2{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card .time{flex:none;text-align:right}
+.card .time .t{font-size:13px;font-weight:800;color:var(--gold)}
+.card .time .st{font-size:10px;font-weight:700;color:#2E7D32}
+.card.closed{opacity:.62}
+.card.closed .time .t{color:var(--sub);text-decoration:line-through}
+.card.closed .time .st{color:#B3261E}
+.news{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:12px;margin-bottom:8px}
+.news .d{color:var(--gold);font-weight:700;margin-right:8px}
+.pickup{background:linear-gradient(135deg,#FFF6EA,#FDEBD3);border:1.5px solid #F2C894;border-radius:12px;padding:14px}
+.pickup .tag{font-size:10px;font-weight:800;color:#fff;background:var(--acc2);border-radius:99px;padding:3px 9px;display:inline-block}
+.pickup h3{font-size:16px;margin:7px 0 4px}
+.pickup p{font-size:12px;color:var(--sub)}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+th,td{border:1px solid var(--line);padding:10px;text-align:right}
+th{background:#FDF0E2;font-size:12px;text-align:center}
+td:first-child{text-align:left;font-weight:700}
+.course{margin-bottom:16px}
+.course h3{font-size:15px;margin-bottom:3px}
+.course h3 .sub2{font-size:11px;color:var(--acc);font-weight:700;margin-left:6px}
+.course p{font-size:11.5px;color:var(--sub);margin-bottom:8px}
+.note{font-size:10.5px;color:#A08F76;margin-top:7px}
+.rules{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 14px}
+.rules li{list-style:none;font-size:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.rules li:last-child{border-bottom:none}
+.rules b{color:#B3261E}
+.data{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 14px}
+.data .r{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:12px}
+.data .r:last-child{border-bottom:none}
+.data .k{flex:none;width:64px;font-weight:800;color:var(--gold);font-size:11.5px}
+.contact{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+.contact a{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:13px;padding:13px 0;border-radius:10px;color:#fff}
+.contact .tel{background:var(--acc2)}.contact .lineb{background:#06C755}.contact .mail{background:#45403A}
+footer{padding:22px 16px 8px;text-align:center;font-size:10px;color:#B4A894}
+.fixedbar{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);border-top:1px solid var(--line);z-index:10}
+.fixedbar .in{max-width:430px;margin:0 auto;padding:8px 12px}
+.fixedbar .hours{font-size:10px;color:var(--sub);text-align:center;font-weight:700;margin-bottom:6px}
+.fixedbar .btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.fixedbar a{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:13px;padding:11px 0;border-radius:9px;color:#fff}
+.fixedbar .tel{background:var(--acc2)}.fixedbar .lineb{background:#06C755}.fixedbar .mail{background:#45403A}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -13,60 +84,13 @@
 <header>
 <div class="area">銀座エリア｜メンズリラクゼーション</div>
 <h1>NAGI GINZA<span class="jp">凪</span></h1>
-<nav><a class="on" href="index.html">トップ</a><a href="schedule.html">出勤情報</a><a href="system.html">料金システム</a></nav>
+<div class="meta"><span class="open">● 営業中</span><span>銀座一丁目駅 徒歩2分</span><span>完全個室</span><span>営業 12:00 - 翌4:00</span><span>受付 11:00 - 翌3:00</span></div>
 </header>
-<div class="fv"><div class="cap"><b>完全個室で、極上の癒し体験を。</b><span>銀座一丁目の、完全予約制・完全個室メンズリラクゼーション</span></div></div>
-
-<section>
-<h2>NEWS<span class="en">ニュース</span></h2>
-<div class="news"><span class="d">2026.11.02</span>デモサイトを公開しました。出勤・料金はサンプル表示です。</div>
-</section>
-
-<section>
-<h2>TOPICS<span class="en">トピックス</span></h2>
-<div class="news"><span class="d">お知らせ 2026/11/02 12:00</span>銀座でメンズリラクゼーションをお探しなら、凪 NAGI GINZA へ。</div>
-<div class="news"><span class="d">お知らせ 2026/11/02 12:00</span>★リニューアル Open★ 初回割引・体験コースをご用意しています。</div>
-</section>
-
-<section>
-<h2>PICK UP<span class="en">ピックアップ</span></h2>
-<div class="names"><span>さくら(28)</span><span>みお(24)</span><span>あや(26)</span><span>りん(22)</span><span>ゆき(30)</span><span>はな(25)</span><span>ことり(23)</span></div>
-</section>
-
-<section>
-<h2>TODAY'S SCHEDULE<span class="en">本日の出勤</span></h2>
-<div class="rtabs"><span class="on">全店</span><span>銀座</span><span>茅場</span><span>上野</span></div>
-<div class="sched">
-<div class="card"><div><div class="nm">りん(22)<span class="tag">新人</span><span class="tag">おすすめ</span></div><div class="prop">茅場ルーム</div></div><div class="time"><div class="t">16:00～22:00</div><div class="st">ご予約可能</div></div></div>
-<div class="card"><div><div class="nm">みお(24)<span class="tag">新人</span><span class="tag">おすすめ</span></div><div class="prop">銀座ルーム</div></div><div class="time"><div class="t">16:00～23:00</div><div class="st">ご予約可能</div></div></div>
-<div class="card"><div><div class="nm">さくら(28)</div><div class="prop">銀座ルーム</div></div><div class="time"><div class="t">12:00～20:00</div><div class="st">ご予約可能</div></div></div>
-<div class="card"><div><div class="nm">あや(26)</div><div class="prop">上野ルーム</div></div><div class="time"><div class="t">18:00～翌2:00</div><div class="st">ご予約可能</div></div></div>
-<div class="card closed"><div><div class="nm">ゆき(30)</div><div class="prop">銀座ルーム</div></div><div class="time"><div class="t">12:00～18:00</div><div class="st">本日 受付終了</div></div></div>
-</div>
-<a class="more" href="schedule.html">2週間先までの出勤を見る →</a>
-</section>
-
-<section>
-<h2>THERAPIST<span class="en">セラピスト</span></h2>
-<div class="sched">
-<div class="card"><div><div class="nm">さくら(28)<span class="tag">おすすめ</span></div><div class="prop">-----</div></div></div>
-<div class="card"><div><div class="nm">みお(24)<span class="tag">おすすめ</span></div><div class="prop">-----</div></div></div>
-<div class="card"><div><div class="nm">りん(22)<span class="tag">新人</span><span class="tag">おすすめ</span></div><div class="prop">銀座 16:00～23:00</div></div></div>
-<div class="card"><div><div class="nm">あや(26)<span class="tag">新人</span></div><div class="prop">-----</div></div></div>
-<div class="card"><div><div class="nm">ゆき(30)</div><div class="prop">-----</div></div></div>
-<div class="card"><div><div class="nm">はな(25)</div><div class="prop">-----</div></div></div>
-<div class="card"><div><div class="nm">ことり(23)</div><div class="prop">-----</div></div></div>
-</div>
-</section>
-
-<section>
-<h2>CREDIT<span class="en">お支払い</span></h2>
-<div class="box">クレジットカードをご利用の際は、ご予約時にお伝え下さい。<br>VISA、MASTER、JCB、AMEXがご利用になれます。</div>
-</section>
+<div class="fv"><div class="cap"><b>今日の疲れは、今日のうちに。</b><span>タイ古式・アロマリンパ・ヘッドスパの完全個室リラクゼーション（銀座の店舗型サロンです）</span></div></div>
 
 <section>
 <h2>CONCEPT<span class="en">コンセプト</span></h2>
-<div class="box">銀座でメンズリラクゼーションをお探しなら、凪 NAGI GINZA へ。<br>当店は銀座一丁目に位置する、完全予約制・完全個室のメンズ専用リラクゼーションサロンです。<br>在籍セラピストは全員、丁寧な接客と高い技術力を兼ね備えたプロフェッショナル。<br>極上のアロマオイルを使ったトリートメントで、日々のストレスやお疲れを癒します。<br>「接待の合間に」「お仕事終わりに」「週末のご褒美に」——<br>30代・40代のビジネスマンを中心に、多くのお客様からご利用いただいております。<br>✅銀座駅・有楽町駅から徒歩圏内<br>✅完全個室＆予約制でプライベート空間を確保<br>✅今なら初回割引・体験コースあり<br>銀座でワンランク上のリラクゼーションをお求めの方は、ぜひ一度ご来店ください。</div>
+<div class="concept">銀座で働く方の「帰る前に、今日の疲れを置いていきたい」に応える、完全個室のリラクゼーションサロンです。圧の強さも会話の量も、すべてお客様に合わせます。出勤・料金・注意事項は、このページに全部先に出しています。探さずに、そのまま予約へ進んでください。</div>
 <div class="gal">
 <div style="background-image:url(img/fv-p1-clean-salon.jpg)"></div>
 <div style="background-image:url(img/fv-p3-fresh-salon.jpg)"></div>
@@ -75,18 +99,128 @@
 </section>
 
 <section>
-<h2>ACCESS<span class="en">アクセス</span></h2>
-<div class="room"><h3>上野ルーム（上野駅から）</h3><p>東京都台東区北上野1丁目（デモ住所）<br>JR上野駅 入谷口から徒歩5分の場所です。駅に着きましたら、お電話くださいませ。ご案内いたします。</p><p class="tel2">TEL：03-0000-0000（デモ番号）／ Open 12:00 ～ 5:00</p></div>
-<div class="room"><h3>銀座ルーム（有楽町線 銀座一丁目駅から）</h3><p>東京都中央区銀座1丁目（デモ住所）<br>有楽町線 銀座一丁目駅 出口1から徒歩1分の場所です。駅に着きましたら、お電話くださいませ。ご案内いたします。</p><p class="tel2">TEL：03-0000-0000（デモ番号）／ Open 12:00 ～ 5:00</p></div>
-<div class="room"><h3>銀座ルーム（京橋駅から）</h3><p>東京都中央区京橋3丁目（デモ住所）<br>銀座線 京橋駅 出口1から徒歩1分の場所です。駅に着きましたら、お電話くださいませ。ご案内いたします。</p><p class="tel2">TEL：03-0000-0000（デモ番号）／ Open 12:00 ～ 5:00</p></div>
-<div class="room"><h3>茅場町ルーム</h3><p>東京都中央区日本橋茅場町1丁目（デモ住所）<br>茅場町駅 出口1、出口3から徒歩1分の場所です。駅に着きましたら、お電話くださいませ。ご案内いたします。</p><p class="tel2">TEL：03-0000-0000（デモ番号）／ Open 12:00 ～ 5:00</p></div>
+<h2>TODAY'S SCHEDULE<span class="en">本日の出勤</span></h2>
+<p class="lead">本日出勤するセラピストと、勤務時間帯です。受付が終わったセラピストも、そのまま表示しています（表示はサンプルです）。</p>
+<div class="sched">
+<div class="card"><div class="row2"><div><div class="nm">さくら(28)</div><div class="spec">身長158cm</div><div class="tags"><span>容姿端麗</span><span>サービス抜群</span><span>大人気</span></div></div><div class="time"><div class="t">12:00 - 20:00</div><div class="st">受付中</div></div></div></div>
+<div class="card"><div class="row2"><div><div class="nm">みお(24)</div><div class="spec">身長160cm</div><div class="tags"><span>癒し系</span><span>清楚系</span><span>サービス抜群</span></div></div><div class="time"><div class="t">14:00 - 22:00</div><div class="st">受付中</div></div></div></div>
+<div class="card"><div class="row2"><div><div class="nm">あや(26)</div><div class="spec">身長157cm</div><div class="tags"><span>サービス抜群</span><span>テクニシャン</span><span>大人気</span></div></div><div class="time"><div class="t">16:00 - 翌0:00</div><div class="st">受付中</div></div></div></div>
+<div class="card"><div class="row2"><div><div class="nm">りん(22)</div><div class="spec">身長156cm</div><div class="tags"><span>癒し系</span><span>イチオシ</span></div></div><div class="time"><div class="t">18:00 - 翌2:00</div><div class="st">受付中</div></div></div></div>
+<div class="card closed"><div class="row2"><div><div class="nm">ゆき(30)</div><div class="spec">身長162cm</div><div class="tags"><span>容姿端麗</span><span>スタイル抜群</span></div></div><div class="time"><div class="t">12:00 - 18:00</div><div class="st">本日 受付終了</div></div></div></div>
+</div>
 </section>
 
-<footer>NAGI GINZA（凪）は架空のデモ店舗です。本サイトの店舗情報・出勤・料金・電話番号はすべてサンプル表示です。<br>03-0000-0000（デモ番号）｜ OPEN：12:00～LAST</footer>
+<section>
+<h2>NEWS<span class="en">新着情報</span></h2>
+<div class="news"><span class="d">2026.11.02</span>デモサイトを公開しました。出勤・料金はサンプル表示です。</div>
+</section>
+
+<section>
+<h2>PICK UP<span class="en">ピックアップ</span></h2>
+<div class="pickup"><span class="tag">初めての方に</span><h3>深凪コース 90分 22,000円</h3><p>アロマリンパとヘッドスパを組み合わせた、当店の中心コースです。まずはこちらで違いを確かめてください。</p></div>
+</section>
+
+<section>
+<h2>THERAPIST<span class="en">セラピスト</span></h2>
+<p class="lead">在籍セラピストの一覧です。</p>
+<div class="sched">
+<div class="card"><div class="nm">さくら(28)</div><div class="spec">身長158cm</div><div class="tags"><span>容姿端麗</span><span>サービス抜群</span><span>大人気</span></div></div>
+<div class="card"><div class="nm">みお(24)</div><div class="spec">身長160cm</div><div class="tags"><span>癒し系</span><span>清楚系</span><span>サービス抜群</span></div></div>
+<div class="card"><div class="nm">あや(26)</div><div class="spec">身長157cm</div><div class="tags"><span>サービス抜群</span><span>テクニシャン</span><span>大人気</span></div></div>
+<div class="card"><div class="nm">りん(22)</div><div class="spec">身長156cm</div><div class="tags"><span>癒し系</span><span>イチオシ</span></div></div>
+<div class="card"><div class="nm">ゆき(30)</div><div class="spec">身長162cm</div><div class="tags"><span>容姿端麗</span><span>スタイル抜群</span></div></div>
+<div class="card"><div class="nm">はな(25)</div><div class="spec">身長159cm</div><div class="tags"><span>サービス抜群</span><span>癒し系</span><span>イチオシ</span></div></div>
+<div class="card"><div class="nm">ことり(23)</div><div class="spec">身長161cm</div><div class="tags"><span>容姿端麗</span><span>サービス抜群</span><span>癒し系</span></div></div>
+</div>
+</section>
+
+<section>
+<h2>SYSTEM<span class="en">料金システム</span></h2>
+<p class="lead">料金は、隠さず表で全部出します。コースは2段階だけです。</p>
+<div class="course">
+<h3>凪コース<span class="sub2">ベーシック</span></h3>
+<p>日々の疲れを丁寧に癒すベーシックコース。経験豊富なセラピストによるオイルトリートメントで、コリや疲労をしっかりと解きほぐします。お仕事帰りや初めての方にもおすすめのコースです。</p>
+<table><tr><th>時間</th><th>料金（税込）</th></tr>
+<tr><td>60分</td><td>15,000円</td></tr>
+<tr><td>90分</td><td>20,000円</td></tr>
+<tr><td>120分</td><td>25,000円</td></tr></table>
+</div>
+<div class="course">
+<h3>深凪コース<span class="sub2">リンパ＋ヘッドスパ込み</span></h3>
+<p>より深い癒しを求める方へ。全身のオイルケアに加え、リンパをしっかりと流すディープトリートメントを施します。セラピストの手技がゆっくりと身体を包み込む、当店人気のコースです。</p>
+<table><tr><th>時間</th><th>料金（税込）</th></tr>
+<tr><td>60分</td><td>18,000円</td></tr>
+<tr><td>90分</td><td>22,000円</td></tr>
+<tr><td>120分</td><td>28,000円</td></tr></table>
+</div>
+<div class="course">
+<h3>オプション・延長</h3>
+<table><tr><th>項目</th><th>料金（税込）</th></tr>
+<tr><td>凪のしずく（頭浸浴の追加）</td><td>2,000円</td></tr>
+<tr><td>指名料</td><td>1,000円</td></tr>
+<tr><td>凪の余韻（延長30分・凪コース）</td><td>7,000円</td></tr>
+<tr><td>凪の余韻（延長30分・深凪コース）</td><td>8,000円</td></tr></table>
+<p class="note">価格は銀座エリアの健全リラクゼーション実測帯に基づくデモ表示です。上記以外の追加料金はかかりません。お支払いは現金・各種カード・PayPayに対応します（カード明細の表記は店名を伏せる形にもできます）。</p>
+</div>
+</section>
+
+<section>
+<h2>注意事項<span class="en">ご利用前に必ずお読みください</span></h2>
+<ul class="rules">
+<li>ご予約は、何日前からでもお取りできます。</li>
+<li>当日のご予約時間1時間前以内のキャンセルは、料金の50%をキャンセル料として頂戴いたします。ご連絡のないキャンセルが続く場合、今後のご予約をお受けできないことがございます。</li>
+<li>ご予約の際は、非通知でのご連絡はお受けできません。番号を通知してお電話ください。</li>
+<li><b>当店は風俗店ではございません。</b>リラクゼーション専門店であり、医療に類似する行為（あん摩マッサージ指圧など）および風俗的サービスは一切行っておりません。</li>
+<li>未成年者・同業関係者・暴力団関係者・薬物使用者・泥酔者のご利用はお断りいたします。</li>
+<li>入室後のセラピストの変更・キャンセルはできかねます。お客様のご都合で予約時間に遅れた場合、コースの変更はできかねます。</li>
+<li>施術前のシャワー、施術中の紙ショーツのご着用を必ずお願いいたします。</li>
+<li>過度なサービスの強要、性的サービスの強要は禁止です。セラピストへのタッチ、暴言や脅迫、その他セラピストが嫌がる行為は禁止です。</li>
+<li>セラピストへのスカウト行為・勧誘は固くお断りいたします。撮影・盗撮・盗聴などの行為は禁止です。</li>
+<li>貴重品の管理はお客様ご自身でお願いいたします。紛失等について当店は責任を負いかねます。</li>
+<li>泥酔されている方、またはセラピストにアルコールを勧める方へのサービスはお断りいたします。</li>
+<li>上記の禁止事項をお守りいただけない場合、またセラピストが施術の続行が不可能と判断した場合は、その場でサービスを中断し、ご退出をお願いいたします。その際、料金の返金には応じられません。また、その後の当店のご利用をご遠慮いただくこともございます。</li>
+</ul>
+</section>
+
+<section>
+<h2>EVENT<span class="en">イベント</span></h2>
+<div class="news"><span class="d">初回限定</span>初めての方は、深凪コース90分を 22,000円 → 19,800円 でご案内します（表示はサンプルです）。</div>
+<div class="news"><span class="d">平日・昼割</span>平日17:00までのご入店で、全コース 1,000円引き（表示はサンプルです）。</div>
+</section>
+
+<section>
+<h2>RANKING<span class="en">セラピスト ご指名ランキング</span></h2>
+<p class="lead">先月のご指名数から集計した順位です（デモでは表示形式のみ再現し、中身はサンプルです）。</p>
+<div class="sched">
+<div class="card"><div class="nm">1位　さくら(28)</div><div class="spec">身長158cm</div><div class="tags"><span>容姿端麗</span><span>サービス抜群</span><span>大人気</span></div></div>
+<div class="card"><div class="nm">2位　あや(26)</div><div class="spec">身長157cm</div><div class="tags"><span>サービス抜群</span><span>テクニシャン</span><span>大人気</span></div></div>
+<div class="card"><div class="nm">3位　みお(24)</div><div class="spec">身長160cm</div><div class="tags"><span>癒し系</span><span>清楚系</span><span>サービス抜群</span></div></div>
+</div>
+</section>
+
+<section>
+<h2>INFORMATION<span class="en">店舗情報・ご予約</span></h2>
+<div class="data">
+<div class="r"><span class="k">店舗名</span><span>NAGI GINZA（凪） ※架空のデモ店舗です</span></div>
+<div class="r"><span class="k">住所</span><span>東京都中央区銀座1丁目（以下、架空のデモ住所）VORT銀座レジデンス 804</span></div>
+<div class="r"><span class="k">アクセス</span><span>銀座一丁目駅10番出口から徒歩2分／銀座駅から徒歩3分。オートロックのため「804」で呼び出してください。</span></div>
+<div class="r"><span class="k">営業時間</span><span>営業 12:00 - 翌4:00（受付 11:00 - 翌3:00）／年中無休</span></div>
+<div class="r"><span class="k">電話</span><span>03-0000-0000 ※デモ用の架空番号です（実在しません）</span></div>
+<div class="r"><span class="k">設備</span><span>完全個室5室／ペアルーム1室／着替え・シャワー各室完備</span></div>
+</div>
+<div class="contact">
+<a class="tel" href="#">TEL</a>
+<a class="lineb" href="#">LINE</a>
+<a class="mail" href="#">MAIL</a>
+</div>
+<p class="note">ご予約は電話・LINE・メールで承ります。当日のご予約はお電話が確実です（リンクはデモのため無効です）。</p>
+</section>
+
+<footer>NAGI GINZA（凪）は架空のデモ店舗です。本サイトの店舗情報・出勤・料金・電話番号はすべてサンプル表示です。<br>営業 12:00 - 翌4:00（受付 11:00 - 翌3:00）｜03-0000-0000（デモ番号）</footer>
 </div>
 <div class="fixedbar"><div class="in">
-<div class="hours">OPEN 12:00 ～ 5:00 ｜ ご予約は LINE が確実です ｜ 03-0000-0000（デモ番号）</div>
-<div class="btns"><a class="line" href="#">LINEで予約</a><a class="tel" href="#">電話する</a></div>
+<div class="hours">営業 12:00 - 翌4:00 ｜ 受付 11:00 - 翌3:00 ｜ 03-0000-0000（デモ番号）</div>
+<div class="btns"><a class="tel" href="#">TEL</a><a class="lineb" href="#">LINE</a><a class="mail" href="#">MAIL</a></div>
 </div></div>
 </body>
 </html>
