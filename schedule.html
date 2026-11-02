@@ -18,46 +18,55 @@
 
 <section>
 <h2>SCHEDULE<span class="en">出勤情報</span></h2>
-<p class="lead">日付を選ぶと、その日の出勤セラピストが表示されます。2週間先まで確認できます（出勤内容はサンプル表示です）。</p>
+<p class="lead">日付を選ぶと、その日の出勤セラピストが表示されます（出勤内容はサンプル表示です）。</p>
 <div class="tabs" id="tabs"></div>
+<div class="rtabs" id="rtabs"><span class="on" data-room="">全店</span><span data-room="銀座">銀座</span><span data-room="茅場">茅場</span><span data-room="上野">上野</span></div>
 <div class="sched" id="list"></div>
 <p class="note">ご予約は画面下の LINE または電話から。当日のご予約はお電話が確実です。</p>
 </section>
 
-<footer>NAGI GINZA（凪）は架空のデモ店舗です。出勤情報はすべてサンプル表示です。</footer>
+<footer>NAGI GINZA（凪）は架空のデモ店舗です。出勤情報はすべてサンプル表示です。<br>03-0000-0000（デモ番号）｜ OPEN：12:00～LAST</footer>
 </div>
 <div class="fixedbar"><div class="in">
-<div class="hours">OPEN 12:00 ～ 翌5:00 ｜ ご予約は LINE が確実です ｜ 03-0000-0000（デモ番号）</div>
+<div class="hours">OPEN 12:00 ～ 5:00 ｜ ご予約は LINE が確実です ｜ 03-0000-0000（デモ番号）</div>
 <div class="btns"><a class="line" href="#">LINEで予約</a><a class="tel" href="#">電話する</a></div>
 </div></div>
 <script>
 var patterns = [
- [["さくら","おすすめ","12:00～20:00","ご予約可能",0],["みお","","14:00～22:00","ご予約可能",0],["あや","","16:00～翌0:00","ご予約可能",0],["りん","新人","18:00～翌2:00","ご予約可能",0],["ゆき","","12:00～18:00","本日 受付終了",1]],
- [["みお","","12:00～20:00","ご予約可能",0],["あや","","14:00～22:00","ご予約可能",0],["はな","","16:00～翌0:00","ご予約可能",0],["ことり","","18:00～翌2:00","ご予約可能",0]],
- [["さくら","おすすめ","13:00～21:00","ご予約可能",0],["りん","新人","15:00～23:00","ご予約可能",0],["ゆき","","17:00～翌1:00","ご予約可能",0],["はな","","12:00～19:00","本日 受付終了",1]]
+ [["りん(22)","新人 おすすめ","16:00～22:00","茅場","ご予約可能",0],["みお(24)","新人 おすすめ","16:00～23:00","銀座","ご予約可能",0],["さくら(28)","","12:00～20:00","銀座","ご予約可能",0],["あや(26)","","18:00～翌2:00","上野","ご予約可能",0],["ゆき(30)","","12:00～18:00","銀座","本日 受付終了",1]],
+ [["みお(24)","","12:00～20:00","銀座","ご予約可能",0],["あや(26)","","14:00～22:00","上野","ご予約可能",0],["はな(25)","","16:00～翌0:00","茅場","ご予約可能",0],["ことり(23)","","18:00～翌2:00","銀座","ご予約可能",0]],
+ [["さくら(28)","おすすめ","13:00～21:00","銀座","ご予約可能",0],["りん(22)","新人","15:00～23:00","茅場","ご予約可能",0],["ゆき(30)","","17:00～翌1:00","上野","ご予約可能",0],["はな(25)","","12:00～19:00","銀座","本日 受付終了",1]]
 ];
-var tabs = document.getElementById("tabs"), list = document.getElementById("list");
+var tabs = document.getElementById("tabs"), list = document.getElementById("list"), rtabs = document.getElementById("rtabs");
 var days = ["日","月","火","水","木","金","土"];
-function render(i){
+var curDay = 0, curRoom = "";
+function render(){
   var btns = tabs.children;
-  for (var j=0;j<btns.length;j++) btns[j].className = (j===i ? "on" : "");
-  var rows = patterns[i % patterns.length], html = "";
+  for (var j=0;j<btns.length;j++) btns[j].className = (j===curDay ? "on" : "");
+  var spans = rtabs.children;
+  for (var k=0;k<spans.length;k++) spans[k].className = (spans[k].getAttribute("data-room")===curRoom ? "on" : "");
+  var rows = patterns[curDay % patterns.length], html = "";
   rows.forEach(function(r){
-    html += '<div class="card' + (r[4] ? ' closed' : '') + '"><div><div class="nm">' + r[0] +
-      (r[1] ? '<span class="tag">' + r[1] + '</span>' : '') +
-      '</div><div class="prop">銀座ルーム</div></div><div class="time"><div class="t">' + r[2] +
-      '</div><div class="st">' + r[3] + '</div></div></div>';
+    if (curRoom && r[3] !== curRoom) return;
+    var tags = "";
+    if (r[1]) r[1].split(" ").forEach(function(t){ tags += '<span class="tag">' + t + '</span>'; });
+    html += '<div class="card' + (r[5] ? ' closed' : '') + '"><div><div class="nm">' + r[0] + tags +
+      '</div><div class="prop">' + r[3] + 'ルーム</div></div><div class="time"><div class="t">' + r[2] +
+      '</div><div class="st">' + r[4] + '</div></div></div>';
   });
-  list.innerHTML = html;
+  list.innerHTML = html || '<div class="box">この日の出勤は未定です（サンプル表示）。</div>';
 }
 for (var i=0;i<14;i++){
   var d = new Date(); d.setDate(d.getDate()+i);
   var b = document.createElement("button");
   b.textContent = (d.getMonth()+1) + "月" + d.getDate() + "日(" + days[d.getDay()] + ")";
-  b.onclick = (function(idx){ return function(){ render(idx); }; })(i);
+  b.onclick = (function(idx){ return function(){ curDay = idx; render(); }; })(i);
   tabs.appendChild(b);
 }
-render(0);
+for (var s=0;s<rtabs.children.length;s++){
+  rtabs.children[s].onclick = (function(el){ return function(){ curRoom = el.getAttribute("data-room"); render(); }; })(rtabs.children[s]);
+}
+render();
 </script>
 </body>
 </html>
